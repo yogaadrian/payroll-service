@@ -30,8 +30,8 @@ func main() {
 
 	r := mux.NewRouter()
 
-	// Register health check handler
-	r.HandleFunc("/health", healthz.HealthHandler).Methods("GET")
+	// Register healthz module routes
+	healthz.RegisterRoutes(r)
 
 	// Get server port from environment variable
 	port := os.Getenv("SERVER_PORT")
